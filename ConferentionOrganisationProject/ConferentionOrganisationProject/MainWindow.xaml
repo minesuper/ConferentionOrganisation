@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConferentionOrganisationProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ИС - Организация конференций" Height="600" Width="900"
+        MinHeight="500" MinWidth="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Frame x:Name="MainFrame"
+               NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

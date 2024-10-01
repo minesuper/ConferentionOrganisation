@@ -23,6 +23,8 @@ namespace ConferentionOrganisationProject
         public MainWindow()
         {
             InitializeComponent();
+            Classes.Navigation.ActiveFrame = MainFrame;
+            Classes.Navigation.ActiveFrame.Navigate(new Pages.RegisterFrame());
         }
     }
 }
