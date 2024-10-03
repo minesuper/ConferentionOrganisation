@@ -41,9 +41,11 @@
           </Key>
           <Property Name="Event_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Event_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Event_Direction_Id" Type="int" />
           <Property Name="Event_Date" Type="date" Nullable="false" />
           <Property Name="Event_Duration_Days" Type="int" Nullable="false" />
           <Property Name="Event_City_Id" Type="int" Nullable="false" />
+          <Property Name="Event_Image" Type="image" />
         </EntityType>
         <EntityType Name="Event_Chains">
           <Key>
@@ -111,6 +113,18 @@
             </Principal>
             <Dependent Role="Event">
               <PropertyRef Name="Event_City_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Directions">
+          <End Role="Directions" Type="Self.Directions" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Directions_Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Event_Direction_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -297,6 +311,10 @@
             <End Role="City" EntitySet="City" />
             <End Role="Event" EntitySet="Event" />
           </AssociationSet>
+          <AssociationSet Name="FK_Event_Directions" Association="Self.FK_Event_Directions">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
           <AssociationSet Name="FK_Result_Activity" Association="Self.FK_Result_Activity">
             <End Role="Activity" EntitySet="Activity" />
             <End Role="Result" EntitySet="Result" />
@@ -391,6 +409,7 @@
           </Key>
           <Property Name="Directions_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Directions_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Event_Directions" FromRole="Directions" ToRole="Event" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Users_Directions" FromRole="Directions" ToRole="Users" />
         </EntityType>
         <EntityType Name="Event">
@@ -399,10 +418,13 @@
           </Key>
           <Property Name="Event_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Event_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Event_Direction_Id" Type="Int32" />
           <Property Name="Event_Date" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Event_Duration_Days" Type="Int32" Nullable="false" />
           <Property Name="Event_City_Id" Type="Int32" Nullable="false" />
+          <Property Name="Event_Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="City" Relationship="Self.FK_Event_City" FromRole="Event" ToRole="City" />
+          <NavigationProperty Name="Directions" Relationship="Self.FK_Event_Directions" FromRole="Event" ToRole="Directions" />
           <NavigationProperty Name="Result" Relationship="Self.FK_Result_Event" FromRole="Event" ToRole="Result" />
         </EntityType>
         <EntityType Name="Event_Chains">
@@ -519,6 +541,18 @@
             </Principal>
             <Dependent Role="Users">
               <PropertyRef Name="User_Country_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Directions">
+          <End Role="Directions" Type="Self.Directions" Multiplicity="0..1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Directions">
+              <PropertyRef Name="Directions_Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="Event_Direction_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -689,6 +723,10 @@
             <End Role="Country" EntitySet="Country" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_Event_Directions" Association="Self.FK_Event_Directions">
+            <End Role="Directions" EntitySet="Directions" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
           <AssociationSet Name="FK_Users_Directions" Association="Self.FK_Users_Directions">
             <End Role="Directions" EntitySet="Directions" />
             <End Role="Users" EntitySet="Users" />
@@ -783,9 +821,11 @@
               <MappingFragment StoreEntitySet="Event">
                 <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
                 <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+                <ScalarProperty Name="Event_Direction_Id" ColumnName="Event_Direction_Id" />
                 <ScalarProperty Name="Event_Date" ColumnName="Event_Date" />
                 <ScalarProperty Name="Event_Duration_Days" ColumnName="Event_Duration_Days" />
                 <ScalarProperty Name="Event_City_Id" ColumnName="Event_City_Id" />
+                <ScalarProperty Name="Event_Image" ColumnName="Event_Image" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

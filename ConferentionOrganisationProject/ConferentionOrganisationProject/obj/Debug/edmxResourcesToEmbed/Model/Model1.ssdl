@@ -36,9 +36,11 @@
     </Key>
     <Property Name="Event_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Event_Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Event_Direction_Id" Type="int" />
     <Property Name="Event_Date" Type="date" Nullable="false" />
     <Property Name="Event_Duration_Days" Type="int" Nullable="false" />
     <Property Name="Event_City_Id" Type="int" Nullable="false" />
+    <Property Name="Event_Image" Type="image" />
   </EntityType>
   <EntityType Name="Event_Chains">
     <Key>
@@ -106,6 +108,18 @@
       </Principal>
       <Dependent Role="Event">
         <PropertyRef Name="Event_City_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Event_Directions">
+    <End Role="Directions" Type="Self.Directions" Multiplicity="0..1" />
+    <End Role="Event" Type="Self.Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Directions">
+        <PropertyRef Name="Directions_Id" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="Event_Direction_Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -290,6 +304,10 @@
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Event_City" Association="Self.FK_Event_City">
       <End Role="City" EntitySet="City" />
+      <End Role="Event" EntitySet="Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Event_Directions" Association="Self.FK_Event_Directions">
+      <End Role="Directions" EntitySet="Directions" />
       <End Role="Event" EntitySet="Event" />
     </AssociationSet>
     <AssociationSet Name="FK_Result_Activity" Association="Self.FK_Result_Activity">

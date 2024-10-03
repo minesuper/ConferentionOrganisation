@@ -24,7 +24,7 @@ namespace ConferentionOrganisationProject
         {
             InitializeComponent();
             Classes.Navigation.ActiveFrame = MainFrame;
-            Classes.Navigation.ActiveFrame.Navigate(new Pages.RegisterFrame());
+            Classes.Navigation.ActiveFrame.Navigate(new Pages.ListViewFrame());
         }
     }
 }

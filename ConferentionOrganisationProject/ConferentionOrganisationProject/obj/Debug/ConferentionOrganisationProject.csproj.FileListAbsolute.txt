@@ -23,3 +23,5 @@ C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationPro
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\ConferentionOrganisationProject_Content.g.cs
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\ConferentionOrganisationProject.csproj.CopyComplete
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\ListViewFrame.g.cs
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\ListViewFrame.baml

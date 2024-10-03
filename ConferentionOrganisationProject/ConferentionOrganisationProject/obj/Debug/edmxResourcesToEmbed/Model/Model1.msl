@@ -40,9 +40,11 @@
         <MappingFragment StoreEntitySet="Event">
           <ScalarProperty Name="Event_Id" ColumnName="Event_Id" />
           <ScalarProperty Name="Event_Name" ColumnName="Event_Name" />
+          <ScalarProperty Name="Event_Direction_Id" ColumnName="Event_Direction_Id" />
           <ScalarProperty Name="Event_Date" ColumnName="Event_Date" />
           <ScalarProperty Name="Event_Duration_Days" ColumnName="Event_Duration_Days" />
           <ScalarProperty Name="Event_City_Id" ColumnName="Event_City_Id" />
+          <ScalarProperty Name="Event_Image" ColumnName="Event_Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
