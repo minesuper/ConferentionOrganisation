@@ -12,7 +12,7 @@
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="ИС - Организация конференций"
+        <Label Content="Организация конференций"
                HorizontalAlignment="Center" VerticalAlignment="Center"
                FontSize="24" FontFamily="Verdana"></Label>
         <Frame x:Name="MainFrame" Grid.Row="1"

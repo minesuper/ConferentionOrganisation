@@ -22,9 +22,7 @@
                       SelectionChanged="DirectionComboBox_SelectionChanged"></ComboBox>
             <DatePicker x:Name="DatePickerElement" HorizontalAlignment="Left"
                         SelectedDateFormat="Short" VerticalAlignment="Center"
-                        Height="30" Width="160" VerticalContentAlignment="Center"
-                        HorizontalContentAlignment="Center"
-                        SelectedDateChanged="DatePickerElement_SelectedDateChanged"></DatePicker>
+                        Height="30" Width="160" SelectedDateChanged="DatePickerElement_SelectedDateChanged"></DatePicker>
         </StackPanel>
 
         <ListView Grid.Row="1" x:Name="EventsListView" HorizontalContentAlignment="Center">
@@ -33,7 +31,6 @@
                     <Grid HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="350"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Margin="10 0 0 0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="150">
@@ -46,12 +43,13 @@
                             </Image.Source>
                         </Image>
                         <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> 
-                        <TextBlock HorizontalAlignment="Center" Text="{Binding Event_Name}" FontWeight="Bold" TextWrapping="Wrap"></TextBlock>
-                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">
-                                                            <Run Text="Направление: "></Run>
-                            <Run Text="{Binding Directions.Directions_Name}"></Run>
+                        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding Event_Name}" FontWeight="Bold" TextWrapping="Wrap"
+                                   TextAlignment="Left"></TextBlock>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap">
+                                <Run Text="Направление: "></Run>
+                                <Run Text="{Binding Directions.Directions_Name}"></Run>
                             </TextBlock>
-                        <TextBlock HorizontalAlignment="Center">
+                        <TextBlock HorizontalAlignment="Left">
                             <Run Text="Начало: "></Run>
                             <Run Text="{Binding Event_Date, StringFormat=dd.MM.yyyy}"></Run>
                         </TextBlock>
