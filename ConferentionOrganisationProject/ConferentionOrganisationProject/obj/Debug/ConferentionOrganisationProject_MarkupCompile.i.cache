@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\App.xaml
-3876421719
+4-869692677
 2-1556844510
-231648056948
+241588466258
 181534201638
-MainWindow.xaml;Pages\ListViewFrame.xaml;Pages\RegisterFrame.xaml;
+MainWindow.xaml;Pages\Authorization.xaml;Pages\ListViewFrame.xaml;Pages\RegisterFrame.xaml;
 
-False
+True
 

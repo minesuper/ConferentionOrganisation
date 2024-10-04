@@ -18,35 +18,43 @@
             <ComboBox x:Name="DirectionComboBox" Width="160"
                   Height="30" HorizontalAlignment="Left"
                   VerticalAlignment="Center" VerticalContentAlignment="Center"
-                  Margin="10 0 20 0" DisplayMemberPath="Directions_Name"></ComboBox>
+                  Margin="10 0 20 0" DisplayMemberPath="Directions_Name"
+                      SelectionChanged="DirectionComboBox_SelectionChanged"></ComboBox>
             <DatePicker x:Name="DatePickerElement" HorizontalAlignment="Left"
                         SelectedDateFormat="Short" VerticalAlignment="Center"
                         Height="30" Width="160" VerticalContentAlignment="Center"
-                        HorizontalContentAlignment="Center"></DatePicker>
+                        HorizontalContentAlignment="Center"
+                        SelectedDateChanged="DatePickerElement_SelectedDateChanged"></DatePicker>
         </StackPanel>
 
-        <ListView Grid.Row="1" x:Name="EventsListView">
+        <ListView Grid.Row="1" x:Name="EventsListView" HorizontalContentAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid HorizontalAlignment="Center">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
-                            <ColumnDefinition Width="50"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="350"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Margin="10 0 0 0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="150" Height="150">
                             <Image.Source>
-                                <Binding>
+                                <Binding Path="Event_Image">
                                     <Binding.TargetNullValue>
                                         <BitmapImage UriSource="/Resource/Placeholder.png"></BitmapImage>
                                     </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
                         </Image>
-                        <StackPanel Orientation="Vertical" Grid.Column="2">
-                        <TextBlock HorizontalAlignment="Center" Text="{Binding Event_Name}" FontWeight="Bold"></TextBlock>
-                        <TextBlock HorizontalAlignment="Center" Text="{Binding Directions.Directions_Name}"></TextBlock>
-                        <TextBlock  HorizontalAlignment="Center" Text="{Binding Event_Date}"></TextBlock>
+                        <StackPanel Orientation="Vertical" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                        <TextBlock HorizontalAlignment="Center" Text="{Binding Event_Name}" FontWeight="Bold" TextWrapping="Wrap"></TextBlock>
+                            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap">
+                                                            <Run Text="Направление: "></Run>
+                            <Run Text="{Binding Directions.Directions_Name}"></Run>
+                            </TextBlock>
+                        <TextBlock HorizontalAlignment="Center">
+                            <Run Text="Начало: "></Run>
+                            <Run Text="{Binding Event_Date, StringFormat=dd.MM.yyyy}"></Run>
+                        </TextBlock>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

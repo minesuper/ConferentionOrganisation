@@ -25,3 +25,5 @@ C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationPro
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\ConferentionOrganisationProject.csproj.CopyComplete
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\ListViewFrame.g.cs
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\ListViewFrame.baml
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\Authorization.g.cs
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\Authorization.baml

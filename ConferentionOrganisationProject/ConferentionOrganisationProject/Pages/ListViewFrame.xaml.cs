@@ -20,7 +20,6 @@ namespace ConferentionOrganisationProject.Pages
     /// </summary>
     public partial class ListViewFrame : Page
     {
-        private List<Model.Event> _currentEvent = new List<Model.Event>();
         public ListViewFrame()
         {
             InitializeComponent();
@@ -29,21 +28,41 @@ namespace ConferentionOrganisationProject.Pages
 
         private void Init()
         {
-            _currentEvent = Model.ConferentionOrganisationDBEntities.GetContext().Event.ToList();
             var _ = Model.ConferentionOrganisationDBEntities.GetContext().Directions.ToList();
             _.Insert(0, new Model.Directions() { Directions_Name = "Все направления"});
             DirectionComboBox.ItemsSource = _;
             DirectionComboBox.SelectedIndex = 0;
-            EventsListView.ItemsSource = _currentEvent;
+            Update();
+
+
         }
         private void Update()
         {
-
+            List<Model.Event> _allEvents = Model.ConferentionOrganisationDBEntities.GetContext().Event.ToList();
+            if (DirectionComboBox.SelectedIndex != 0)
+            {
+                _allEvents = _allEvents.Where(d => d.Event_Direction_Id == DirectionComboBox.SelectedIndex).ToList();
+            }
+            if (!String.IsNullOrEmpty(DatePickerElement.SelectedDate.ToString()))
+            {
+                _allEvents = _allEvents.Where(d => d.Event_Date == DatePickerElement.SelectedDate).ToList();
+            }
+            EventsListView.ItemsSource = _allEvents;
         }
 
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
+            Classes.Navigation.ActiveFrame.Navigate(new Pages.Authorization());
+        }
 
+        private void DirectionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
+        }
+
+        private void DatePickerElement_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Update();
         }
     }
 }
