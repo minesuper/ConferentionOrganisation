@@ -9,7 +9,11 @@
       Title="RegisterFrame">
 
     <Grid Background="White">
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
@@ -42,5 +46,8 @@
 
             <Button Style="{StaticResource RegistrationButton}" x:Name="RegButton" Grid.ColumnSpan="2" Grid.Row="6" Content="Зарегистрироваться" Click="RegButton_Click"></Button>
         </Grid>
+        <Button Style="{StaticResource RegistrationButton}" Content="Назад" x:Name="BackButton" 
+                    Click="BackButton_Click" HorizontalAlignment="Left"
+                VerticalAlignment="Bottom" Grid.Row="1" Margin="10 0 0 10"></Button>
     </Grid>
 </Page>

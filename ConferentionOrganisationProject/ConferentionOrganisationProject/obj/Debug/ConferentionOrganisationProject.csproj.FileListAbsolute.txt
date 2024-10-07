@@ -27,3 +27,7 @@ C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationPro
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\ListViewFrame.baml
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\Authorization.g.cs
 C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\Authorization.baml
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\NotOrgPage.g.cs
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\NotOrgPage.baml
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\OrganisatorPage.g.cs
+C:\Users\lisav\Desktop\test\ConferentionOrganisation\ConferentionOrganisationProject\ConferentionOrganisationProject\obj\Debug\Pages\OrganisatorPage.baml

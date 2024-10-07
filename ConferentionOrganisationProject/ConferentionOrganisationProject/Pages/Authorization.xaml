@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ConferentionOrganisationProject.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Authorization">
+      Title="Авторизация">
 
     <Grid Background="White">
         <Grid.RowDefinitions>
@@ -18,6 +18,8 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
@@ -31,12 +33,18 @@
                     HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
             <Label Margin="0 0 10 0" Grid.Row="2" Grid.Column="0" Content="Пароль"
                    HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+            <Label Margin="0 0 10 0" Grid.Row="3" Grid.Column="0" Content="Каптча"
+                   HorizontalAlignment="Right" VerticalAlignment="Center" x:Name="CaptchaLabel"></Label>
 
             <TextBox Style="{StaticResource RegistrationTextBox}" x:Name="LoginTB" Grid.Row="1" Grid.Column="1" ></TextBox>
             <PasswordBox Style="{StaticResource RegistrationPasswordBox}" x:Name="PasswordPB" Grid.Row="2" Grid.Column="1" ></PasswordBox>
-
+            <TextBox Style="{StaticResource RegistrationTextBox}" x:Name="CaptchaAnswerTB" Grid.Row="3" Grid.Column="1" ></TextBox>
+            
+            <Image Grid.Row="4" Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center" x:Name="CaptchaImage" Width="auto"></Image>
+            
             <Button Style="{StaticResource RegistrationButton}" x:Name="AuthButton" Grid.ColumnSpan="2"
-                    Grid.Row="4" Content="Войти" Click="AuthButton_Click"></Button>
+                    Grid.Row="5" Content="Войти" Click="AuthButton_Click"></Button>
         </Grid>
         <Grid Grid.Row="1" >
             <Button Style="{StaticResource RegistrationButton}" Content="Назад" x:Name="BackButton" 

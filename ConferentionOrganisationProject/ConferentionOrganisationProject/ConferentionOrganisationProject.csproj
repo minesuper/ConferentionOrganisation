@@ -86,6 +86,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\NotOrgPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OrganisatorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\RegisterFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -142,6 +150,12 @@
     </Compile>
     <Compile Include="Pages\ListViewFrame.xaml.cs">
       <DependentUpon>ListViewFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NotOrgPage.xaml.cs">
+      <DependentUpon>NotOrgPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrganisatorPage.xaml.cs">
+      <DependentUpon>OrganisatorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegisterFrame.xaml.cs">
       <DependentUpon>RegisterFrame.xaml</DependentUpon>

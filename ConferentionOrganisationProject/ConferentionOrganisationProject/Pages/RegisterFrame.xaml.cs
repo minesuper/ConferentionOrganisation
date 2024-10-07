@@ -78,5 +78,13 @@ namespace ConferentionOrganisationProject.Pages
                 MessageBox.Show(ex.ToString(), "Ошибка!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (Classes.Navigation.ActiveFrame.CanGoBack)
+            {
+                Classes.Navigation.ActiveFrame.GoBack();
+            }
+        }
     }
 }
