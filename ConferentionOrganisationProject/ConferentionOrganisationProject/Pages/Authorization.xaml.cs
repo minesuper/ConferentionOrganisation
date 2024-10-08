@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,37 +33,46 @@ namespace ConferentionOrganisationProject.Pages
             CaptchaLabel.Visibility = Visibility.Collapsed;
             CaptchaAnswerTB.Visibility = Visibility.Collapsed;
             CaptchaImage.Visibility = Visibility.Collapsed;
+            string Data = Decode();
+            if (!string.IsNullOrEmpty(Data))
+            {
+                LoginTB.Text = Data.Split(':')[0];
+                PasswordPB.Password = Data.Split(':')[1];
+            }
         }
         private BitmapSource GenerateCaptcha()
         {
             CaptchaText = "";
-            List<char> Words = new List<char>();
-            for (char i = 'A'; i<= 'Z'; i++)
-            {
-                Words.Add(i);
-            }
+            List<char> Words = new List<char>("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".ToCharArray());
             Random rnd = new Random();
             for (int i = 0; i < 4; i++)
             {
                 CaptchaText += Words[rnd.Next(Words.Count)];
             }
             var Visual = new DrawingVisual();
+            int Width = 200;
+            int Height = 40;
             using (var DrawContext = Visual.RenderOpen())
             {
                 int X = 10;
                 var Font = new Typeface(new FontFamily("Arial"), FontStyles.Normal, FontWeights.Normal, FontStretches.Normal);
                 foreach (var i  in CaptchaText)
                 {
-                    DrawContext.PushTransform(new TranslateTransform(X, rnd.Next(5, 15)));
+                    DrawContext.PushTransform(new TranslateTransform(X, -rnd.Next(5,10)));
                     var FormatedText = new FormattedText(i.ToString(),
                         System.Globalization.CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
-                        Font, 36, new SolidColorBrush(Colors.Black));
+                        Font, 72, new SolidColorBrush(Colors.Black));
                     DrawContext.DrawText(FormatedText, new Point(X, 10));
                     DrawContext.Pop();
-                    X += 10;
+                    X += 17;
+                }
+                for (int i = 0; i < 100; i++)
+                {
+                    Pen pen = new Pen();
+                    DrawContext.DrawEllipse(Brushes.Black, pen, new Point(rnd.Next(Width), rnd.Next(Height)), 1.2, 1.2);
                 }
             }
-            var BitmapImage = new RenderTargetBitmap(100, 40, 48, 48, PixelFormats.Pbgra32);
+            var BitmapImage = new RenderTargetBitmap(Width, Height, 48, 48, PixelFormats.Pbgra32);
             BitmapImage.Render(Visual);
             return BitmapImage;
         }
@@ -93,6 +103,8 @@ namespace ConferentionOrganisationProject.Pages
                 else if (CountAuthTries >= 3 && CaptchaAnswer != CaptchaText)
                 {
                     errors.AppendLine("Каптча решена неправильно");
+                    CaptchaAnswerTB.Text = "";
+                    CaptchaImage.Source = GenerateCaptcha();
                 }
                 if (errors.Length > 0)
                 {
@@ -112,6 +124,7 @@ namespace ConferentionOrganisationProject.Pages
                         CaptchaAnswerTB.Visibility = Visibility.Visible;
                         CaptchaImage.Visibility = Visibility.Visible;
                         CaptchaImage.Source = GenerateCaptcha();
+                        CaptchaAnswerTB.Text = "";
                         AuthButton.IsEnabled = false;
                         await Task.Delay(10000);
                         AuthButton.IsEnabled = true;
@@ -120,6 +133,8 @@ namespace ConferentionOrganisationProject.Pages
                 }
                 Init();
                 CountAuthTries = 0;
+                Encode(user);
+                MessageBox.Show("Успешный вход", "Успех!", MessageBoxButton.OK, MessageBoxImage.Information);
                 switch (user.Roles.Roles_Name)
                 {
                     case "Жюри":
@@ -148,6 +163,33 @@ namespace ConferentionOrganisationProject.Pages
             {
                 Classes.Navigation.ActiveFrame.GoBack();
             }
+        }
+
+        private void Encode(Model.Users User)
+        {
+            string Token = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{User.User_Id}:{User.User_Password}"));
+            string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Directory.GetCurrentDirectory(), @"..\..\"));
+            if (!File.Exists(path+@"\token.txt"))
+            {
+                using(StreamWriter sw = new StreamWriter(path+@"\token.txt"))
+                {
+                    sw.WriteLine(Token);
+                }
+            }
+        }
+
+        private string Decode()
+        {
+            string Token = "";
+            string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Directory.GetCurrentDirectory(), @"..\..\"));
+            if (File.Exists(path + @"\token.txt"))
+            {
+                using (StreamReader sr = new StreamReader(path + @"\token.txt"))
+                {
+                    Token = sr.ReadLine();
+                }
+            }
+            return !string.IsNullOrEmpty(Token) ? System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(Token)) : null;
         }
 
         private void RegButton_Click(object sender, RoutedEventArgs e)

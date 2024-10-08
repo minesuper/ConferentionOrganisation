@@ -25,7 +25,7 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock Margin="0 0 0 20" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
                        Text="Авторизация" Grid.ColumnSpan="2" Grid.Row="0"></TextBlock>
@@ -40,8 +40,9 @@
             <PasswordBox Style="{StaticResource RegistrationPasswordBox}" x:Name="PasswordPB" Grid.Row="2" Grid.Column="1" ></PasswordBox>
             <TextBox Style="{StaticResource RegistrationTextBox}" x:Name="CaptchaAnswerTB" Grid.Row="3" Grid.Column="1" ></TextBox>
             
-            <Image Grid.Row="4" Grid.ColumnSpan="2"
-                   HorizontalAlignment="Center" x:Name="CaptchaImage" Width="auto"></Image>
+            <Image Grid.Row="4" Grid.Column="1"
+                   x:Name="CaptchaImage"
+                   HorizontalAlignment="Center"></Image>
             
             <Button Style="{StaticResource RegistrationButton}" x:Name="AuthButton" Grid.ColumnSpan="2"
                     Grid.Row="5" Content="Войти" Click="AuthButton_Click"></Button>
