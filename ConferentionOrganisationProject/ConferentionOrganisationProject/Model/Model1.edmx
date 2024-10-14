@@ -99,6 +99,7 @@
           <Property Name="User_Phone" Type="nvarchar" MaxLength="25" />
           <Property Name="User_Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="User_Photo_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Photo" Type="image" />
           <Property Name="User_Sex_Id" Type="int" />
           <Property Name="User_Role_Id" Type="int" Nullable="false" />
           <Property Name="User_Direction_Id" Type="int" />
@@ -491,6 +492,7 @@
           <Property Name="User_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
           <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="User_Photo_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="User_Sex_Id" Type="Int32" />
           <Property Name="User_Role_Id" Type="Int32" Nullable="false" />
           <Property Name="User_Direction_Id" Type="Int32" />
@@ -884,6 +886,7 @@
                 <ScalarProperty Name="User_Phone" ColumnName="User_Phone" />
                 <ScalarProperty Name="User_Password" ColumnName="User_Password" />
                 <ScalarProperty Name="User_Photo_Name" ColumnName="User_Photo_Name" />
+                <ScalarProperty Name="User_Photo" ColumnName="User_Photo" />
                 <ScalarProperty Name="User_Sex_Id" ColumnName="User_Sex_Id" />
                 <ScalarProperty Name="User_Role_Id" ColumnName="User_Role_Id" />
                 <ScalarProperty Name="User_Direction_Id" ColumnName="User_Direction_Id" />

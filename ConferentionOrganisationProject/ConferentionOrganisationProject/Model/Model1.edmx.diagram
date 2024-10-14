@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4be319176e734da5a3c657482b20361b" Name="Diagram1">
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Activity" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.City" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+      <Diagram DiagramId="943bcfee063042b181f22eae94902c5f" Name="Diagram1">
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Activity" Width="1.5" PointX="6" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.City" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Country" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Directions" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Event" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Event_Chains" Width="1.5" PointX="3.75" PointY="9.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Result" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Roles" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Sexes" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Directions" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Event" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Event_Chains" Width="1.5" PointX="3.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Result" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Roles" Width="1.5" PointX="3.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Sexes" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ConferentionOrganisationDBModel.Users" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
         <AssociationConnector Association="ConferentionOrganisationDBModel.FK_Result_Activity" ManuallyRouted="false" />
         <AssociationConnector Association="ConferentionOrganisationDBModel.FK_Event_City" ManuallyRouted="false" />

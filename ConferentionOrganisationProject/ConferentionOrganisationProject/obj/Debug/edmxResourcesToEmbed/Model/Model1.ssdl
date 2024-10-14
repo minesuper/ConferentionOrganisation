@@ -94,6 +94,7 @@
     <Property Name="User_Phone" Type="nvarchar" MaxLength="25" />
     <Property Name="User_Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="User_Photo_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_Photo" Type="image" />
     <Property Name="User_Sex_Id" Type="int" />
     <Property Name="User_Role_Id" Type="int" Nullable="false" />
     <Property Name="User_Direction_Id" Type="int" />

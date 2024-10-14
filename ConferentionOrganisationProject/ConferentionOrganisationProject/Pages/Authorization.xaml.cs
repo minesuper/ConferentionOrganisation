@@ -147,7 +147,7 @@ namespace ConferentionOrganisationProject.Pages
                         Classes.Navigation.ActiveFrame.Navigate(new Pages.NotOrgPage(user.Roles.Roles_Name));
                         break;
                     case "Организатор":
-                        Classes.Navigation.ActiveFrame.Navigate(new Pages.OrganisatorPage());
+                        Classes.Navigation.ActiveFrame.Navigate(new Pages.OrganisatorPage(user));
                         break;
 
                 }
@@ -169,13 +169,10 @@ namespace ConferentionOrganisationProject.Pages
         {
             string Token = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{User.User_Id}:{User.User_Password}"));
             string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Directory.GetCurrentDirectory(), @"..\..\"));
-            if (!File.Exists(path+@"\token.txt"))
-            {
                 using(StreamWriter sw = new StreamWriter(path+@"\token.txt"))
                 {
                     sw.WriteLine(Token);
                 }
-            }
         }
 
         private string Decode()

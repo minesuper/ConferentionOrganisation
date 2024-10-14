@@ -103,6 +103,7 @@
           <ScalarProperty Name="User_Phone" ColumnName="User_Phone" />
           <ScalarProperty Name="User_Password" ColumnName="User_Password" />
           <ScalarProperty Name="User_Photo_Name" ColumnName="User_Photo_Name" />
+          <ScalarProperty Name="User_Photo" ColumnName="User_Photo" />
           <ScalarProperty Name="User_Sex_Id" ColumnName="User_Sex_Id" />
           <ScalarProperty Name="User_Role_Id" ColumnName="User_Role_Id" />
           <ScalarProperty Name="User_Direction_Id" ColumnName="User_Direction_Id" />

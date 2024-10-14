@@ -114,6 +114,7 @@
     <Property Name="User_Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="User_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="User_Photo_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="User_Sex_Id" Type="Int32" />
     <Property Name="User_Role_Id" Type="Int32" Nullable="false" />
     <Property Name="User_Direction_Id" Type="Int32" />

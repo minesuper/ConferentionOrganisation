@@ -10,22 +10,41 @@ namespace ConferentionOrganisationProject.Classes
 {
     public static class ImageToByte
     {
-        public static void ImageConverter() {
-            foreach (var item in Model.ConferentionOrganisationDBEntities.GetContext().Event.ToList())
+        public static void ImageConverter()
+        {
+            foreach (var item in Model.ConferentionOrganisationDBEntities.GetContext().Users.ToList())
             {
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.jpg"))
+                if (item.User_Role_Id == 1)
                 {
-                    item.Event_Image = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.jpg");
-                    continue;
+                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\jury\\{item.User_Photo_Name}"))
+                    {
+                        item.User_Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\jury\\{item.User_Photo_Name}");
+                        continue;
+                    }
                 }
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.png"))
+                else if (item.User_Role_Id == 2)
                 {
-                    item.Event_Image = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.png");
-                    continue;
+                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\mod\\{item.User_Photo_Name}"))
+                    {
+                        item.User_Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\mod\\{item.User_Photo_Name}");
+                        continue;
+                    }
                 }
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.jpeg"))
+                else if (item.User_Role_Id == 3)
                 {
-                    item.Event_Image = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $@"/EventsImg/{item.Event_Id}.jpeg");
+                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\org\\{item.User_Photo_Name}"))
+                    {
+                        item.User_Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\org\\{item.User_Photo_Name}");
+                        continue;
+                    }
+                }
+                else if (item.User_Role_Id == 4)
+                {
+                    if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\users\\{item.User_Photo_Name}"))
+                    {
+                        item.User_Photo = File.ReadAllBytes(AppDomain.CurrentDomain.BaseDirectory + $"EventsImg\\users\\{item.User_Photo_Name}");
+                        continue;
+                    }
                 }
             }
             Model.ConferentionOrganisationDBEntities.GetContext().SaveChanges();

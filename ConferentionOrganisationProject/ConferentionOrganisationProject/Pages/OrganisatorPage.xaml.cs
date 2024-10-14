@@ -20,9 +20,40 @@ namespace ConferentionOrganisationProject.Pages
     /// </summary>
     public partial class OrganisatorPage : Page
     {
-        public OrganisatorPage()
+        Model.Users CurrentUser { get; set; }
+        public OrganisatorPage(Model.Users User)
         {
             InitializeComponent();
+            CurrentUser = User;
+            DataContext = CurrentUser;
+            OnStart();
+        }
+        private void OnStart()
+        {
+            int CurrentHours = DateTime.Now.Hour;
+            string Hello = "";
+            if (CurrentHours >= 9 && CurrentHours < 11)
+            {
+                Hello = "Доброе утро!";
+            }
+            else if (CurrentHours >= 11 && CurrentHours < 18)
+            {
+                Hello = "Доброго дня!";
+            }
+            else if (CurrentHours >= 18 && CurrentHours < 24)
+            {
+                Hello = "Доброго вечера!";
+            }
+            HelloText.Text = Hello;
+
+            if (CurrentUser.Sexes.Sexes_Name == "Женский")
+            {
+                GenderText.Text = "Ms";
+            } 
+            else if(CurrentUser.Sexes.Sexes_Name == "Мужской")
+            {
+                GenderText.Text = "Mrs";
+            }
         }
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
@@ -30,6 +61,21 @@ namespace ConferentionOrganisationProject.Pages
             {
                 Classes.Navigation.ActiveFrame.GoBack();
             }
+        }
+
+        private void EventsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ParticipantsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void JuriesButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

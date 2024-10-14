@@ -36,6 +36,7 @@ namespace ConferentionOrganisationProject.Model
         public string User_Phone { get; set; }
         public string User_Password { get; set; }
         public string User_Photo_Name { get; set; }
+        public byte[] User_Photo { get; set; }
         public Nullable<int> User_Sex_Id { get; set; }
         public int User_Role_Id { get; set; }
         public Nullable<int> User_Direction_Id { get; set; }
