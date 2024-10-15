@@ -77,5 +77,15 @@ namespace ConferentionOrganisationProject.Pages
         {
 
         }
+
+        private void RegEventButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RegJuryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

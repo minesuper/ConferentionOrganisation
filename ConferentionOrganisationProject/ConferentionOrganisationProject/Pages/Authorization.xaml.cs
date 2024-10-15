@@ -168,6 +168,7 @@ namespace ConferentionOrganisationProject.Pages
         private void Encode(Model.Users User)
         {
             string Token = System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes($"{User.User_Id}:{User.User_Password}"));
+            Token = Token.Remove(Token.Length-1,1);
             string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(Directory.GetCurrentDirectory(), @"..\..\"));
                 using(StreamWriter sw = new StreamWriter(path+@"\token.txt"))
                 {
@@ -186,7 +187,7 @@ namespace ConferentionOrganisationProject.Pages
                     Token = sr.ReadLine();
                 }
             }
-            return !string.IsNullOrEmpty(Token) ? System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(Token)) : null;
+            return !string.IsNullOrEmpty(Token) ? System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(Token + "=")) : null;
         }
 
         private void RegButton_Click(object sender, RoutedEventArgs e)
