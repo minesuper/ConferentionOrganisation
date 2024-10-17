@@ -98,6 +98,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\RegistrationJuryModeratorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Activity.cs">
@@ -159,6 +163,9 @@
     </Compile>
     <Compile Include="Pages\RegisterFrame.xaml.cs">
       <DependentUpon>RegisterFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RegistrationJuryModeratorPage.xaml.cs">
+      <DependentUpon>RegistrationJuryModeratorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

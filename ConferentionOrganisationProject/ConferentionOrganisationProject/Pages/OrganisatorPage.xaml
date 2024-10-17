@@ -87,8 +87,8 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2">
             <Button Style="{StaticResource RegistrationButton}" Content="Регистрация мероприятия" x:Name="RegEventButton" 
                     Click="RegEventButton_Click" HorizontalAlignment="Left" Margin="0 0 0 0"></Button>
-            <Button Style="{StaticResource RegistrationButton}" Content="Регистрация жюри" x:Name="RegJuryButton" 
-                    Click="RegJuryButton_Click" HorizontalAlignment="Right" Margin="10 0 10 0"></Button>
+            <Button Style="{StaticResource RegistrationButton}" Width="200" Content="Регистрация жюри/модератора" x:Name="RegJuryModButton" 
+                    Click="RegJuryModButton_Click" HorizontalAlignment="Right" Margin="10 0 10 0"></Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -82,10 +82,9 @@ namespace ConferentionOrganisationProject.Pages
         {
 
         }
-
-        private void RegJuryButton_Click(object sender, RoutedEventArgs e)
+        private void RegJuryModButton_Click(object sender, RoutedEventArgs e)
         {
-
+            Classes.Navigation.ActiveFrame.Navigate(new Pages.RegistrationJuryModeratorPage());
         }
     }
 }
